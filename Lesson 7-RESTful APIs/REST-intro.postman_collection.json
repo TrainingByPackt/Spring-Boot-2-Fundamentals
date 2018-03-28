@@ -1,0 +1,157 @@
+{
+	"info": {
+		"name": "REST-intro",
+		"_postman_id": "fdd3819b-c225-4d39-9f49-dec4485a1504",
+		"description": "Lesson 7, calls to introductory endpoints.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "greeting/string",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/api/greeting/string",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"greeting",
+						"string"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "greeting/fakeJson",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/api/greeting/fakeJson",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"greeting",
+						"fakeJson"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "greeting/manualJson",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/api/greeting/manualJson",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"greeting",
+						"manualJson"
+					]
+				},
+				"description": null
+			},
+			"response": []
+		},
+		{
+			"name": "greeting/mapJson",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/api/greeting/mapJson",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"greeting",
+						"mapJson"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "greeting/objectJson",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "localhost:8080/api/greeting/objectJson",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"greeting",
+						"objectJson"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "63312a41-8d5c-4cdb-84ea-4cde81c687de",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "16c22e50-c1df-4c86-bb53-c6611ee71db6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
