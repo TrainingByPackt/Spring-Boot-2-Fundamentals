@@ -1,0 +1,176 @@
+{
+	"info": {
+		"name": "Content-Types",
+		"_postman_id": "f6ce33bc-00b7-4951-b622-f981dbda504f",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "greeting JSON",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/api/greeting",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"greeting"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "greeting text",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/plain"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/api/greeting",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"greeting"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "greeting XML",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/xml"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/api/greeting",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"greeting"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "greeting parameter",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/api/greeting?addressee=John",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"greeting"
+					],
+					"query": [
+						{
+							"key": "addressee",
+							"value": "John",
+							"equals": true
+						}
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "greeting form",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "addressee",
+							"value": "Paul",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/api/greeting",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"greeting"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "greeting JSON",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"addressee\": \"Ringo\",\n\t\"message\": \"Hello!\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/greeting",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"greeting"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

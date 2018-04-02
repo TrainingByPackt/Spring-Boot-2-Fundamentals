@@ -1,0 +1,206 @@
+{
+	"info": {
+		"name": "Response status and headers",
+		"_postman_id": "f728a853-e19c-4a08-829b-e1d001f8d1b9",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "motd",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/api/motd",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"motd"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "motd",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\": \"Spring Boot makes REST easy\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/motd",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"motd"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "mottos #1",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\": \"Spring Boot makes REST easy\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/mottos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mottos"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "mottos #2a",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\": \"Choose status codes wisely\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/mottos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mottos"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "mottos #2b",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"message\": \"Choose status codes wisely\"\n}"
+				},
+				"url": {
+					"raw": "localhost:8080/api/mottos",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mottos"
+					]
+				},
+				"description": "Same as 2a, this time 409 will be returned."
+			},
+			"response": []
+		},
+		{
+			"name": "mottos #2",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8080/api/mottos/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"mottos",
+						"2"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "computation 1+2",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/x-www-form-urlencoded"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "expression",
+							"value": "1+2",
+							"description": "",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8080/api/computation",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"computation"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
