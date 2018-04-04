@@ -1,0 +1,78 @@
+{
+	"info": {
+		"name": "External",
+		"_postman_id": "0247d34c-5b5d-43d2-8138-ad19b06f40c0",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Yes/No",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://yesno.wtf/api",
+					"protocol": "https",
+					"host": [
+						"yesno",
+						"wtf"
+					],
+					"path": [
+						"api"
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SWAPI people",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://swapi.co/api/people/",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"people",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "SWAPI Tatooine",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "https://swapi.co/api/planets/1/",
+					"protocol": "https",
+					"host": [
+						"swapi",
+						"co"
+					],
+					"path": [
+						"api",
+						"planets",
+						"1",
+						""
+					]
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
