@@ -6,11 +6,15 @@ import lombok.NoArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
+import org.springframework.web.util.UriComponents;
 import org.springframework.web.util.UriComponentsBuilder;
 
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
+
+import static org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder.on;
 
 @RestController
 @RequestMapping("/api/mottos")
@@ -33,9 +37,12 @@ public class MottoController {
             return ResponseEntity.status(HttpStatus.CONFLICT).build();
         } else {
             motto.add(message);
-            URI location = uriBuilder.path("/api/mottos/{id}").build(motto.size());
+
+            UriComponents location = MvcUriComponentsBuilder
+                    .fromMethodCall(on(MottoController.class).retrieveById(motto.size()))
+                    .build();
             return ResponseEntity
-                    .created(location)
+                    .created(location.toUri())
                     .header("X-Copyright", "Packt 2018")
                     .body(new Message("Accepted #" + motto.size()));
         }
