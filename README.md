@@ -1,5 +1,5 @@
-# Beginning-Springboot
-Code bundles for Beginning Springboot, published by Packt.
+# Beginning Spring Boot
+Code bundles for Beginning Spring Boot, published by Packt.
 
 Code Bundles for Courseware on Beginning Spring Boot – Alexander Sparkowsky, Michael Piefel and Patrick Cornelißen. 
 
