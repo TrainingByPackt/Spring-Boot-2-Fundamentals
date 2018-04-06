@@ -1,4 +1,4 @@
-package com.packt.springboot.blog.controller;
+package com.packt.springboot.blogmania.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
