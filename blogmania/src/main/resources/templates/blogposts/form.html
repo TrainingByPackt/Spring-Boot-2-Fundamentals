@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default.html}">
+<head>
+    <title th:text="#{blogpost.page.edit.title}">Blog Post</title>
+</head>
+<body>
+<!--/*@thymesVar id="blogPost" type="com.packt.springboot.blogmania.blogpost.BlogPost"*/-->
+<main layout:fragment="content">
+    <div>
+        <div class="row">
+            Form to edit or create a blog post.
+        </div>
+    </div>
+</main>
+</body>
+</html>
