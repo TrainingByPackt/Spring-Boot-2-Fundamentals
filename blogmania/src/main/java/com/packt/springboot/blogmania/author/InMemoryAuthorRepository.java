@@ -15,6 +15,9 @@ public class InMemoryAuthorRepository implements AuthorRepository {
     @PostConstruct
     public void init() {
         authors = new ArrayList<>();
+
+        Author demoAuthor = new Author("Toni", "Tester", "toni@tester.de");
+        authors.add(demoAuthor);
     }
 
     @Override
