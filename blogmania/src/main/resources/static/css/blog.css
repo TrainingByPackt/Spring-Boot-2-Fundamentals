@@ -138,6 +138,7 @@ h1, h2, h3, h4, h5, h6 {
  * Footer
  */
 .blog-footer {
+    margin-top: 2.5rem;
     padding: 2.5rem 0;
     color: #999;
     text-align: center;

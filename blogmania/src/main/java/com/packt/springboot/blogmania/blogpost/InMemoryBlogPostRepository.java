@@ -19,9 +19,10 @@ public class InMemoryBlogPostRepository implements BlogPostRepository {
         blogPosts = new ArrayList<>();
 
         BlogPost post1 = new BlogPost(
+                1L,
                 LocalDateTime.of(2018, Month.APRIL, 7, 12, 23, 42),
-                new Author("Toni", "Tester", "toni@tester.de"),
-                new Category("general", "General"),
+                new Author(1L, "Toni", "Tester", "toni@tester.de"),
+                new Category(1L, "general", "General"),
                 true,
                 PublicationState.PUBLISHED,
                 "first-blog-post",
@@ -31,9 +32,10 @@ public class InMemoryBlogPostRepository implements BlogPostRepository {
         );
 
         BlogPost post2 = new BlogPost(
+                2L,
                 LocalDateTime.of(2018, Month.APRIL, 9, 13, 21, 8),
-                new Author("Toni", "Tester", "toni@tester.de"),
-                new Category("general", "General"),
+                new Author(1L, "Toni", "Tester", "toni@tester.de"),
+                new Category(1L, "general", "General"),
                 true,
                 PublicationState.PUBLISHED,
                 "second-blog-post",
@@ -49,5 +51,12 @@ public class InMemoryBlogPostRepository implements BlogPostRepository {
     @Override
     public List<BlogPost> findAll() {
         return new ArrayList<>(blogPosts);
+    }
+
+    @Override
+    public BlogPost save(BlogPost blogPost) {
+        blogPosts.add(blogPost);
+
+        return blogPost;
     }
 }

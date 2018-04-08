@@ -12,6 +12,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class BlogPost {
+    private Long id;
+
     private LocalDateTime postDate;
 
     private Author author;

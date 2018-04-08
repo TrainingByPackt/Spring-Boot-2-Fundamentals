@@ -9,4 +9,6 @@ public interface AuthorRepository {
     Optional<Author> findAuthorByEmail(String email);
 
     List<Author> findAll();
+
+    Optional<Author> findById(Long l);
 }

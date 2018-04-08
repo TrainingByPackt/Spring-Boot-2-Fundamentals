@@ -16,7 +16,7 @@ public class InMemoryAuthorRepository implements AuthorRepository {
     public void init() {
         authors = new ArrayList<>();
 
-        Author demoAuthor = new Author("Toni", "Tester", "toni@tester.de");
+        Author demoAuthor = new Author(1L, "Toni", "Tester", "toni@tester.de");
         authors.add(demoAuthor);
     }
 
@@ -32,6 +32,13 @@ public class InMemoryAuthorRepository implements AuthorRepository {
 
         return authors.stream()
                 .filter(author -> email.equals(author.getEmail()))
+                .findFirst();
+    }
+
+    @Override
+    public Optional<Author> findById(Long id) {
+        return authors.stream()
+                .filter(author -> id.equals(author.getId()))
                 .findFirst();
     }
 

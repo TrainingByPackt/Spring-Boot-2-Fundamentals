@@ -16,8 +16,8 @@ public class InMemoryCategoryRepository implements CategoryRepository {
     public void init() {
         categories = new ArrayList<>();
 
-        Category category1 = new Category("general", "General");
-        Category category2 = new Category("spring", "Spring Framework");
+        Category category1 = new Category(1L, "general", "General");
+        Category category2 = new Category(2L, "spring", "Spring Framework");
         categories.add(category1);
         categories.add(category2);
     }

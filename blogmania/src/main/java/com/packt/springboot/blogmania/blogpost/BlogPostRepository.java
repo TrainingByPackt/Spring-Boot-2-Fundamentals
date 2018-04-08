@@ -4,4 +4,6 @@ import java.util.List;
 
 public interface BlogPostRepository {
     List<BlogPost> findAll();
+
+    BlogPost save(BlogPost blogPost);
 }
