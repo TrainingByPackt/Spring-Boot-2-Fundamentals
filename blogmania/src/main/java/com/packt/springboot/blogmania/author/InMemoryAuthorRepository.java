@@ -16,8 +16,10 @@ public class InMemoryAuthorRepository implements AuthorRepository {
     public void init() {
         authors = new ArrayList<>();
 
-        Author demoAuthor = new Author(1L, "Toni", "Tester", "toni@tester.de");
-        authors.add(demoAuthor);
+        Author demoAuthor1 = new Author(1L, "Toni", "Tester", "toni@tester.de");
+        Author demoAuthor2 = new Author(2L, "John", "Doe", "john@doe.com");
+        authors.add(demoAuthor1);
+        authors.add(demoAuthor2);
     }
 
     @Override

@@ -27,7 +27,6 @@ public class InMemoryBlogPostRepository implements BlogPostRepository {
                 PublicationState.PUBLISHED,
                 "first-blog-post",
                 "First Blog Post",
-                "This is a first Blog Post",
                 "<p>This is the <strong>first</strong> Blog Post that should appear in BlogMania.</p>"
         );
 
@@ -40,7 +39,6 @@ public class InMemoryBlogPostRepository implements BlogPostRepository {
                 PublicationState.PUBLISHED,
                 "second-blog-post",
                 "Second Blog Post",
-                "This is a second Blog Post",
                 "<p>This is the <em>second</em> Blog Post that should appear in BlogMania.</p>"
         );
 

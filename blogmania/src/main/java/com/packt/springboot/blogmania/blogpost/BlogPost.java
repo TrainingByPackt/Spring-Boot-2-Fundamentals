@@ -28,7 +28,5 @@ public class BlogPost {
 
     private String title;
 
-    private String abstractContent;
-
-    private String mainContent;
+    private String content;
 }
