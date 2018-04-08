@@ -1,11 +1,14 @@
 package com.packt.springboot.blogmania.category;
 
+import org.springframework.stereotype.Repository;
+
 import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
 
+@Repository
 public class InMemoryCategoryRepository implements CategoryRepository {
     private List<Category> categories;
 
