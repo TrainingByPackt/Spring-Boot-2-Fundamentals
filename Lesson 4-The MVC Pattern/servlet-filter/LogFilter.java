@@ -1,7 +1,4 @@
-package de.roamingthings.kuberspring.config;
-
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.Filter;
@@ -15,9 +12,8 @@ import java.io.IOException;
 
 @WebFilter
 @Component
+@Slf4j
 public class LogFilter implements Filter {
-    private static Logger log = LoggerFactory.getLogger(LogFilter.class);
-
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
     }
