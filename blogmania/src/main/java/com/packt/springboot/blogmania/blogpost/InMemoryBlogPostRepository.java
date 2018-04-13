@@ -1,7 +1,10 @@
 package com.packt.springboot.blogmania.blogpost;
 
 import com.packt.springboot.blogmania.author.Author;
+import com.packt.springboot.blogmania.author.InMemoryAuthorRepository;
 import com.packt.springboot.blogmania.category.Category;
+import com.packt.springboot.blogmania.category.InMemoryCategoryRepository;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 
 import javax.annotation.PostConstruct;
@@ -11,18 +14,25 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Repository
+@RequiredArgsConstructor
 public class InMemoryBlogPostRepository implements BlogPostRepository {
+    private final InMemoryAuthorRepository authorRepository;
+    private final InMemoryCategoryRepository categoryRepository;
+
     private List<BlogPost> blogPosts;
 
     @PostConstruct
     public void init() {
+        Author author = authorRepository.findById(1L).get();
+        Category category = categoryRepository.findCategoryBySlug("general").get();
+
         blogPosts = new ArrayList<>();
 
         BlogPost post1 = new BlogPost(
                 1L,
                 LocalDateTime.of(2018, Month.APRIL, 7, 12, 23, 42),
-                new Author(1L, "Toni", "Tester", "toni@tester.de"),
-                new Category(1L, "general", "General"),
+                author,
+                category,
                 true,
                 PublicationState.PUBLISHED,
                 "first-blog-post",
@@ -33,8 +43,8 @@ public class InMemoryBlogPostRepository implements BlogPostRepository {
         BlogPost post2 = new BlogPost(
                 2L,
                 LocalDateTime.of(2018, Month.APRIL, 9, 13, 21, 8),
-                new Author(1L, "Toni", "Tester", "toni@tester.de"),
-                new Category(1L, "general", "General"),
+                author,
+                category,
                 true,
                 PublicationState.PUBLISHED,
                 "second-blog-post",
