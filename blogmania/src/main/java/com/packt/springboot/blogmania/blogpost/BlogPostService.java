@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
+import java.util.Random;
 
 @Service
 @RequiredArgsConstructor
@@ -12,7 +14,7 @@ public class BlogPostService {
     private final BlogPostFactory blogPostFactory;
     private final BlogPostRepository blogPostRepository;
     private final Author loggedInAuthor;
-
+    private final Random random = new Random(System.currentTimeMillis());
 
     public BlogPost prepareNewBlogPost() {
         BlogPost blogPost = blogPostFactory.createBlogPostWithDefaults();
@@ -25,11 +27,22 @@ public class BlogPostService {
         return blogPostRepository.save(blogPost);
     }
 
+    public List<BlogPost> findAllBlogPosts() {
+        return blogPostRepository.findAll();
+    }
+
     public int numberOfBlogPosts() {
         return blogPostRepository.countAllBlogPosts();
     }
 
-    public List<BlogPost> findAllBlogPosts() {
-        return blogPostRepository.findAll();
+    public BlogPost randomBlogPost() {
+        List<BlogPost> allBlogPosts = findAllBlogPosts();
+        int indexOfBlogPost = random.nextInt(numberOfBlogPosts());
+
+        return allBlogPosts.get(indexOfBlogPost);
+    }
+
+    public Optional<BlogPost> findBlogPostBySlug(String slug) {
+        return blogPostRepository.findBySlug(slug);
     }
 }

@@ -12,6 +12,7 @@ import java.time.LocalDateTime;
 import java.time.Month;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -71,5 +72,12 @@ public class InMemoryBlogPostRepository implements BlogPostRepository {
     @Override
     public int countAllBlogPosts() {
         return blogPosts.size();
+    }
+
+    @Override
+    public Optional<BlogPost> findBySlug(String slug) {
+        return blogPosts.stream()
+                .filter((blogPost) -> slug.equalsIgnoreCase(blogPost.getSlug()))
+                .findFirst();
     }
 }
