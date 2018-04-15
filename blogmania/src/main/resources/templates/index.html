@@ -16,10 +16,10 @@
                 </h3>
 
                 <div th:each="blogPost : ${blogPosts}" class="blog-post">
-                    <div th:replace="blogposts/card :: blog-post">
+                    <div th:replace="blogposts/card :: blog-post (${blogPost})">
                         The Blog Post
                     </div>
-                 </div>
+                </div>
 
                 <nav class="blog-pagination">
                     <a class="btn btn-outline-primary" href="#">Older</a>
