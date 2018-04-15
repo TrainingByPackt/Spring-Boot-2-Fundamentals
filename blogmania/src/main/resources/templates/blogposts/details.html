@@ -10,7 +10,9 @@
 <main layout:fragment="content">
     <div>
         <!--/*@thymesVar id="flashMessage" type="java.lang.String"*/-->
+        <!--/*@thymesVar id="extraMessage" type="java.lang.String"*/-->
         <div th:if="${flashMessage}" th:text="${flashMessage}" class="alert alert-info" role="alert">Flash Message</div>
+        <div th:if="${param.extraMessage}" th:text="${param.extraMessage}" class="alert alert-info" role="alert">Extra Message</div>
         <div class="row">
 
             <div class="col-md-8 blog-main">

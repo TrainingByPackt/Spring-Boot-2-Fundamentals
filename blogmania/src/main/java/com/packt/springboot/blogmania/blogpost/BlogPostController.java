@@ -54,7 +54,7 @@ public class BlogPostController {
     @GetMapping("/random")
     public RedirectView displayRandomBlogPost(RedirectAttributes attributes) {
         attributes.addFlashAttribute("flashMessage", "Enjoy this post");
-        attributes.addAttribute("extraMessage", "redirectedQueryParameter");
+        attributes.addAttribute("extraMessage", "This message appears in the query");
 
         BlogPost blogPost = blogPostService.randomBlogPost();
 
