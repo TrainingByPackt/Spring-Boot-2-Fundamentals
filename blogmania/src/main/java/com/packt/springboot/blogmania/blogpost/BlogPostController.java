@@ -36,7 +36,7 @@ public class BlogPostController {
         BlogPost blogPost = blogPostService.findBlogPostBySlug(slug)
                 .orElseThrow(() -> new BlogPostNotFoundException("Blog post with slug " + slug + " could not be found"));
 
-        return new ModelAndView("/blogposts/details", "blogPost", blogPost);
+        return new ModelAndView("blogposts/details", "blogPost", blogPost);
     }
 
     @PostMapping
