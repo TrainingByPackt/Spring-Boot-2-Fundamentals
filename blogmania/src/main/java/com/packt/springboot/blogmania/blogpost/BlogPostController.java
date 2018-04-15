@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.springframework.web.servlet.view.RedirectView;
 
@@ -31,13 +32,11 @@ public class BlogPostController {
     }
 
     @GetMapping("/{slug}")
-    public String displayBlogPostBySlug(@PathVariable String slug, Model model) throws BlogPostNotFoundException {
+    public ModelAndView displayBlogPostBySlug(@PathVariable String slug) throws BlogPostNotFoundException {
         BlogPost blogPost = blogPostService.findBlogPostBySlug(slug)
                 .orElseThrow(() -> new BlogPostNotFoundException("Blog post with slug " + slug + " could not be found"));
 
-        model.addAttribute("blogPost", blogPost);
-
-        return "/blogposts/details";
+        return new ModelAndView("/blogposts/details", "blogPost", blogPost);
     }
 
     @PostMapping
