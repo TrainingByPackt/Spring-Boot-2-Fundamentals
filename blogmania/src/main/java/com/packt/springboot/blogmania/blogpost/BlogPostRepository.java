@@ -6,4 +6,6 @@ public interface BlogPostRepository {
     List<BlogPost> findAll();
 
     BlogPost save(BlogPost blogPost);
+
+    int countAllBlogPosts();
 }

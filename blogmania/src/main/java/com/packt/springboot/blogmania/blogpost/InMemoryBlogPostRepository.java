@@ -67,4 +67,9 @@ public class InMemoryBlogPostRepository implements BlogPostRepository {
 
         return blogPost;
     }
+
+    @Override
+    public int countAllBlogPosts() {
+        return blogPosts.size();
+    }
 }

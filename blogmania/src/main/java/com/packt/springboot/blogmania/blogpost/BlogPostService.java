@@ -4,6 +4,8 @@ import com.packt.springboot.blogmania.author.Author;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class BlogPostService {
@@ -21,5 +23,13 @@ public class BlogPostService {
 
     public BlogPost save(BlogPost blogPost) {
         return blogPostRepository.save(blogPost);
+    }
+
+    public int numberOfBlogPosts() {
+        return blogPostRepository.countAllBlogPosts();
+    }
+
+    public List<BlogPost> findAllBlogPosts() {
+        return blogPostRepository.findAll();
     }
 }

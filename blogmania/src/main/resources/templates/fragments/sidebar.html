@@ -28,6 +28,10 @@
                 <li><a href="#">May 2013</a></li>
                 <li><a href="#">April 2013</a></li>
             </ol>
+            <!--/*@thymesVar id="allPostsCount" type="java.lang.Integer"*/-->
+            <div th:if="${allPostsCount}">
+                Total <span th:text="${allPostsCount}" class="badge badge-pill badge-secondary">0</span> posts
+            </div>
         </div>
     </aside>
 </body>
