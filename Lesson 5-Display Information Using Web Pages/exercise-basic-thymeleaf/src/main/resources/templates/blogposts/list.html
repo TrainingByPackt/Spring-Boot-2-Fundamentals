@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Post List</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <!-- Insert conditional here -->
+    <!-- Insert list here -->
+    <form action="#" th:action="@{/}" method="post">
+        <button class="btn btn-primary btn-lg btn-outline-primary" type="submit">Add</button>
+    </form>
+    <form action="#" th:action="@{/clear}" method="post">
+        <button class="btn btn-danger btn-lg btn-outline-danger" type="submit">Remove all</button>
+    </form>
+</div>
+</body>
+</html>

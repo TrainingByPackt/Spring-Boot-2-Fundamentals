@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="${blogPost.title}">Blog Post Title</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <!-- Insert details view here -->
+    <div class="card">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${blogPost.title}">Title</h5>
+            <h6 class="card-subtitle" th:text="${#temporals.format(blogPost.publicationDate, 'MMMM d, YYYY')}">Publication Date</h6>
+            <p class="card-text" th:text="${blogPost.content}">Main Content</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
