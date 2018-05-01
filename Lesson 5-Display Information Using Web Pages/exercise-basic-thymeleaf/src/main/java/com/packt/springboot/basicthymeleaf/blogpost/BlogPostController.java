@@ -41,14 +41,4 @@ public class BlogPostController {
         return new RedirectView("/", true);
     }
     // Insert displaySampleBlogPost() here
-    @GetMapping("/sample-post")
-    public ModelAndView displaySampleBlogPost() {
-        BlogPost blogPost = new BlogPost();
-        blogPost.setTitle("A sample blog post");
-        blogPost.setPublicationDate(LocalDateTime.now());
-
-        blogPost.setContent("Writing blog posts is fun!");
-
-        return new ModelAndView("/blogposts/details", "blogPost", blogPost);
-    }
 }
