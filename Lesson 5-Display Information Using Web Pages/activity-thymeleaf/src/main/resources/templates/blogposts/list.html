@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Blog Post List</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <h1><span th:text="${allPostsCount}">?</span> Posts on this site</h1>
+    <!-- Show a message instead of an empty page when there are no blog posts -->
+    <div th:if="${#lists.isEmpty(blogPosts)}" class="alert alert-primary">
+        There are no blog posts
+    </div>
+    <div th:each="currentBlogPost : ${blogPosts}" class="card">
+        <div class="card-body">
+            <h5 class="card-title" th:text="${currentBlogPost.title}">Title</h5>
+            <p class="card-text" th:text="${currentBlogPost.content}">Main Content</p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
