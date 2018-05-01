@@ -39,6 +39,17 @@ public class BlogPostController {
         return new ModelAndView("blogposts/details", "blogPost", blogPost);
     }
 
+    @GetMapping("/sample-post")
+    public ModelAndView displaySampleBlogPost() {
+        BlogPost blogPost = new BlogPost();
+        blogPost.setTitle("A sample blog post");
+        blogPost.setPostDate(LocalDateTime.now());
+
+        blogPost.setContent("Writing blog posts is fun!");
+
+        return new ModelAndView("blogposts/details", "blogPost", blogPost);
+    }
+
     @PostMapping
     public String saveBlogPost(BlogPost blogPost) {
         Author selectedAuthor = authorService.findById(blogPost.getAuthor().getId());

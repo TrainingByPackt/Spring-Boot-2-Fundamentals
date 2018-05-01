@@ -1,12 +1,12 @@
-package com.packt.springboot.basicthymeleaftemplate;
+package com.packt.springboot.basicthymeleaf;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class BasicThymeleafTemplateApplication {
+public class BasicThymeleafApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(BasicThymeleafTemplateApplication.class, args);
+		SpringApplication.run(BasicThymeleafApplication.class, args);
 	}
 }
