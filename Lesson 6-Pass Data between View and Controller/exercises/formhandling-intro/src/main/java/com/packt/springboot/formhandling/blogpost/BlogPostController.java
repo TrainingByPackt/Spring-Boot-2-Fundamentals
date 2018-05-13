@@ -2,10 +2,12 @@ package com.packt.springboot.formhandling.blogpost;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.validation.Valid;
 import java.time.LocalDateTime;
 
 /**
@@ -29,6 +31,8 @@ public class BlogPostController {
 
     /**
      * Render the view that contains a Thymeleaf form utilizing a backing bean.
+     *
+     * This method also shows how the form can be initialized by providing a backing bean in the model.
      */
     @GetMapping("new-backing-bean")
     public ModelAndView renderFormViewForBackingBean() {
@@ -40,13 +44,15 @@ public class BlogPostController {
 
     /**
      * Render the view that contains a Thymeleaf form utilizing a validated backing bean.
+     *
+     * This method also shows how the form can be initialized by providing a backing bean in the model.
      */
     @GetMapping("new-validated-bean")
-    public String renderFormViewForValidatedBean() {
+    public ModelAndView renderFormViewForValidatedBean() {
         ValidatedBlogPostCommand validatedBlogPostCommand = new ValidatedBlogPostCommand();
         validatedBlogPostCommand.setTitle("Default Title");
 
-        return "blogposts/form-validated-bean";
+        return new ModelAndView("blogposts/form-validated-bean", "validatedBlogPostCommand", validatedBlogPostCommand);
     }
 
     /**
@@ -67,7 +73,7 @@ public class BlogPostController {
      * Create a new blog post by processing separate key/value parameters and display the result.
      */
     @PostMapping("create-backing-bean")
-    public ModelAndView createBlogPostFromBackingBean(@RequestBody BlogPostCommand blogPostCommand) {
+    public ModelAndView createBlogPostFromBackingBean(@ModelAttribute BlogPostCommand blogPostCommand) {
         BlogPost createdBlogPost = createBlogPost(
                 blogPostCommand.getTitle(),
                 blogPostCommand.getSlug(),
@@ -81,14 +87,22 @@ public class BlogPostController {
      * Create a new blog post by processing separate key/value parameters and display the result.
      */
     @PostMapping("create-validated-bean")
-    public ModelAndView createBlogPostFromValidatedBean(@RequestBody @Validated ValidatedBlogPostCommand validatedBlogPostCommand) {
+    public String createBlogPostFromValidatedBean(
+            @Valid @ModelAttribute ValidatedBlogPostCommand validatedBlogPostCommand,
+            BindingResult bindingResult,
+            Model model) {
+        if (bindingResult.hasErrors()) {
+            return "blogposts/form-validated-bean";
+        }
+
         BlogPost createdBlogPost = createBlogPost(
                 validatedBlogPostCommand.getTitle(),
                 validatedBlogPostCommand.getSlug(),
                 validatedBlogPostCommand.getContent(),
                 validatedBlogPostCommand.isVisible());
 
-        return new ModelAndView("blogposts/show", "blogPost", createdBlogPost);
+        model.addAttribute("blogPost", createdBlogPost);
+        return "blogposts/show";
     }
 
     /**
