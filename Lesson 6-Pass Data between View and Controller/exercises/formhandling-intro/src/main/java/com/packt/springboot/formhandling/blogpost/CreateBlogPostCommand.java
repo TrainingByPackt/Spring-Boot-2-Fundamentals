@@ -8,7 +8,7 @@ import lombok.NoArgsConstructor;
  */
 @Data
 @NoArgsConstructor
-public class BlogPostCommand {
+public class CreateBlogPostCommand {
     private String title;
 
     private String slug;

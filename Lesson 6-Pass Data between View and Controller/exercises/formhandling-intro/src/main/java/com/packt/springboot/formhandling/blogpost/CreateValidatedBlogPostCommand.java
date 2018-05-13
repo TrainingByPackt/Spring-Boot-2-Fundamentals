@@ -7,11 +7,11 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
 
 /**
- * This is an enhanced version of {@link BlogPostCommand} with added validation annotations.
+ * This is an enhanced version of {@link CreateBlogPostCommand} with added validation annotations.
  */
 @Data
 @NoArgsConstructor
-public class ValidatedBlogPostCommand {
+public class CreateValidatedBlogPostCommand {
     @NotBlank
     @Size(max = 140)
     private String title;

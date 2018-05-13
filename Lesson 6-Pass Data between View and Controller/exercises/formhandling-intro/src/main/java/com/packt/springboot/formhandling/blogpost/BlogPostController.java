@@ -36,10 +36,10 @@ public class BlogPostController {
      */
     @GetMapping("new-backing-bean")
     public ModelAndView renderFormViewForBackingBean() {
-        BlogPostCommand blogPostCommand = new BlogPostCommand();
-        blogPostCommand.setTitle("Default Title");
+        CreateBlogPostCommand createBlogPostCommand = new CreateBlogPostCommand();
+        createBlogPostCommand.setTitle("Default Title");
 
-        return new ModelAndView("blogposts/form-backing-bean", "blogPostCommand", blogPostCommand);
+        return new ModelAndView("blogposts/form-backing-bean", "blogPostCommand", createBlogPostCommand);
     }
 
     /**
@@ -49,10 +49,10 @@ public class BlogPostController {
      */
     @GetMapping("new-validated-bean")
     public ModelAndView renderFormViewForValidatedBean() {
-        ValidatedBlogPostCommand validatedBlogPostCommand = new ValidatedBlogPostCommand();
-        validatedBlogPostCommand.setTitle("Default Title");
+        CreateValidatedBlogPostCommand createValidatedBlogPostCommand = new CreateValidatedBlogPostCommand();
+        createValidatedBlogPostCommand.setTitle("Default Title");
 
-        return new ModelAndView("blogposts/form-validated-bean", "validatedBlogPostCommand", validatedBlogPostCommand);
+        return new ModelAndView("blogposts/form-validated-bean", "validatedBlogPostCommand", createValidatedBlogPostCommand);
     }
 
     /**
@@ -73,12 +73,12 @@ public class BlogPostController {
      * Create a new blog post by processing separate key/value parameters and display the result.
      */
     @PostMapping("create-backing-bean")
-    public ModelAndView createBlogPostFromBackingBean(@ModelAttribute BlogPostCommand blogPostCommand) {
+    public ModelAndView createBlogPostFromBackingBean(@ModelAttribute CreateBlogPostCommand createBlogPostCommand) {
         BlogPost createdBlogPost = createBlogPost(
-                blogPostCommand.getTitle(),
-                blogPostCommand.getSlug(),
-                blogPostCommand.getContent(),
-                blogPostCommand.isVisible());
+                createBlogPostCommand.getTitle(),
+                createBlogPostCommand.getSlug(),
+                createBlogPostCommand.getContent(),
+                createBlogPostCommand.isVisible());
 
         return new ModelAndView("blogposts/show", "blogPost", createdBlogPost);
     }
@@ -88,7 +88,7 @@ public class BlogPostController {
      */
     @PostMapping("create-validated-bean")
     public String createBlogPostFromValidatedBean(
-            @Valid @ModelAttribute ValidatedBlogPostCommand validatedBlogPostCommand,
+            @Valid @ModelAttribute CreateValidatedBlogPostCommand createValidatedBlogPostCommand,
             BindingResult bindingResult,
             Model model) {
         if (bindingResult.hasErrors()) {
@@ -96,10 +96,10 @@ public class BlogPostController {
         }
 
         BlogPost createdBlogPost = createBlogPost(
-                validatedBlogPostCommand.getTitle(),
-                validatedBlogPostCommand.getSlug(),
-                validatedBlogPostCommand.getContent(),
-                validatedBlogPostCommand.isVisible());
+                createValidatedBlogPostCommand.getTitle(),
+                createValidatedBlogPostCommand.getSlug(),
+                createValidatedBlogPostCommand.getContent(),
+                createValidatedBlogPostCommand.isVisible());
 
         model.addAttribute("blogPost", createdBlogPost);
         return "blogposts/show";
