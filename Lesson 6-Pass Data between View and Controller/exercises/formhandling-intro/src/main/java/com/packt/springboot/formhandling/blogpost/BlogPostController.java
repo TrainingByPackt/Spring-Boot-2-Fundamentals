@@ -39,7 +39,7 @@ public class BlogPostController {
         CreateBlogPostCommand createBlogPostCommand = new CreateBlogPostCommand();
         createBlogPostCommand.setTitle("Default Title");
 
-        return new ModelAndView("blogposts/form-backing-bean", "blogPostCommand", createBlogPostCommand);
+        return new ModelAndView("blogposts/form-backing-bean", "createBlogPostCommand", createBlogPostCommand);
     }
 
     /**
@@ -52,7 +52,7 @@ public class BlogPostController {
         CreateValidatedBlogPostCommand createValidatedBlogPostCommand = new CreateValidatedBlogPostCommand();
         createValidatedBlogPostCommand.setTitle("Default Title");
 
-        return new ModelAndView("blogposts/form-validated-bean", "validatedBlogPostCommand", createValidatedBlogPostCommand);
+        return new ModelAndView("blogposts/form-validated-bean", "createValidatedBlogPostCommand", createValidatedBlogPostCommand);
     }
 
     /**

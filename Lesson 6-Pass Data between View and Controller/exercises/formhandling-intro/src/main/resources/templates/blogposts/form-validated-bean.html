@@ -9,7 +9,7 @@
 <body>
 <div class="container">
     <h1>Create Blog Post with Multiple Values</h1>
-    <form action="#" th:action="@{/blogposts/create-validated-bean}" th:object="${validatedBlogPostCommand}" method="post">
+    <form action="#" th:action="@{/blogposts/create-validated-bean}" th:object="${createValidatedBlogPostCommand}" method="post">
         <div th:if="${#fields.hasAnyErrors()}" th:remove="tag">
             <p class="alert alert-danger">Please check the form for invalid input.</p>
 
