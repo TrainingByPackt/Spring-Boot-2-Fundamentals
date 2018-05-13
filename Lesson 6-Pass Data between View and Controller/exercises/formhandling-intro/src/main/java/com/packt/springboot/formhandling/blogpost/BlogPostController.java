@@ -25,7 +25,10 @@ import java.time.LocalDateTime;
 public class BlogPostController {
 
     @GetMapping("new-multiple-values")
-    public String renderFormViewForSeparateValues() {
+    public String renderFormViewForSeparateValues(Model model) {
+        model.addAttribute("title", "Default Title");
+        model.addAttribute("slug", "default-slug");
+        model.addAttribute("content", "I always wanted to say...");
         return "blogposts/form-multiple-values";
     }
 

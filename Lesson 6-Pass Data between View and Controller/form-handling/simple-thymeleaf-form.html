@@ -9,7 +9,7 @@
 <body>
 <div class="container">
     <h1>Create Blog Post with Multiple Values</h1>
-    <form action="#" th:action="@{/blogposts/create-multiple-values}" method="post">
+    <form action="#" th:action="@{/blogposts/create}" method="post">
         <div class="form-group">
             <label for="title">Title</label>
             <input type="text" class="form-control" id="title" name="title" th:value="${title}" placeholder="Blog Post Title">
