@@ -15,7 +15,6 @@
         <div class="row">
             <p>Example user: user / password</p>
             <div th:if="${loginError}" class="alert alert-warning" role="alert">
-                A simple warning alert—check it out!
                 <p class="error">Wrong user or password</p>
             </div>
             <form th:action="@{/login}" method="post">
@@ -26,6 +25,11 @@
                 <input type="submit" value="Log in"/>
             </form>
             <!--<p><a href="/index" th:href="@{/index}">Back to home page</a></p>-->
+        </div>
+        <div class="row">
+            <form th:action="@{/logout}" method="post">
+                <input type="submit" value="Log out"/>
+            </form>
         </div>
     </div>
 </main>

@@ -6,4 +6,4 @@
  |_|   \__,_|\___|_|\_\\__/_/
  ${AnsiColor.RED}==============================${AnsiColor.DEFAULT}
  Beginning Spring Boot 2
- ${AnsiColor.GREEN}Lesson 7${AnsiColor.DEFAULT} – REST Introduction
+ ${AnsiColor.GREEN}Lesson 8${AnsiColor.DEFAULT} – Security Introduction

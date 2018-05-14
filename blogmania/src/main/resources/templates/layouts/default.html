@@ -39,7 +39,10 @@
                         <line x1="2" y1="12" x2="22" y2="12"></line>
                     </svg>
                 </a>
-                <a class="btn btn-sm btn-outline-secondary" href="#">Log in</a>
+                <form th:action="@{/logout}" method="post">
+                    <input type="submit" class="btn btn-sm btn-outline-secondary" value="Log out"/>
+                </form>
+                <!--<a class="btn btn-sm btn-outline-secondary" href="#">Log in</a>-->
             </div>
         </div>
     </header>
