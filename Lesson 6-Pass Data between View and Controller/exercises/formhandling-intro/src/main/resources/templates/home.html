@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Input Exercise</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <h1>Exercise Lesson 6 - Pass Data Between View and Controller</h1>
+    <p>Please choos how to create a new Blog Post:</p>
+
+    <ul>
+        <li><a href="#" th:href="@{/blogposts/new-multiple-values}">New Blog Post from Multiple Values</a></li>
+        <li><a href="#" th:href="@{/blogposts/new-backing-bean}">New Blog Post with Backing Bean</a></li>
+        <li><a href="#" th:href="@{/blogposts/new-validated-bean}">New Blog Post with Validated Bean</a></li>
+    </ul>
+</div>
+</body>
+</html>
