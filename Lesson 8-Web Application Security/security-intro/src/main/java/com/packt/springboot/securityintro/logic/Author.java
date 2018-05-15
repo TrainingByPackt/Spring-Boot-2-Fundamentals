@@ -3,7 +3,6 @@ package com.packt.springboot.securityintro.logic;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -22,7 +21,7 @@ public class Author implements UserDetails {
 
     private String password;
 
-    private boolean admin = false;
+    private boolean admin;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
