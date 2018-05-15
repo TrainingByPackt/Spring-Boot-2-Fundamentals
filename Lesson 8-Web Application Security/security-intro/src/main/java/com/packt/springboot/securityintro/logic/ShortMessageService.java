@@ -3,7 +3,7 @@ package com.packt.springboot.securityintro.logic;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -18,6 +18,7 @@ public class ShortMessageService {
     }
 
     public List<ShortMessage> findAll() {
-        return Collections.unmodifiableList(shortMessages);
+        // If you want to use @PostFilter, use a modifiable copy!
+        return new ArrayList<>(shortMessages);
     }
 }

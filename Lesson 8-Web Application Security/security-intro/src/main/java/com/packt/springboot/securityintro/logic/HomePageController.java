@@ -3,7 +3,7 @@ package com.packt.springboot.securityintro.logic;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import lombok.val;
-import org.springframework.security.core.Authentication;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
@@ -33,69 +33,70 @@ public class HomePageController {
 
     @GetMapping("/")
     public String homePage(Model model) {
-        callAllAnnotatedMethods(); // TODO Somewhere else?
+        callAllAnnotatedMethods();
 
+        // Fill in authorities for the model
         val authentication = SecurityContextHolder.getContext().getAuthentication();
         model.addAttribute("authorities", authentication.getAuthorities());
-        log.info("auth {}", authentication.getAuthorities());
 
+        // Fill in username (from principal) for the model
         Object principal = authentication.getPrincipal();
         String username = principal instanceof UserDetails
                 ? ((UserDetails) principal).getUsername()
                 : principal.toString();
         model.addAttribute("username", username);
-        log.info("prin {}  ;  usr {}", principal.getClass(), username);
 
+        // Fill in the messages for the model
         List<ShortMessage> shortMessages = sms.findAll();
         model.addAttribute("shortMessages", shortMessages);
         return "index";
     }
 
+    /**
+     * Call the methods from {@link OverAnnotatedService} to show the
+     * effect of the annotations all in one place.
+     */
     private void callAllAnnotatedMethods() {
-        log.error("");
-        log.error("---------------------------------------------------------");
         try {
             log.info(overAnnotatedService.sec1a());
-        } catch (RuntimeException e) {
+        } catch (AccessDeniedException e) {
             log.warn("{} on sec1a", e.getMessage());
         }
         try {
             log.info(overAnnotatedService.sec1b());
-        } catch (RuntimeException e) {
+        } catch (AccessDeniedException e) {
             log.warn("{} on sec1b", e.getMessage());
         }
         try {
             log.info(overAnnotatedService.sec2a());
-        } catch (RuntimeException e) {
+        } catch (AccessDeniedException e) {
             log.warn("{} on sec2a", e.getMessage());
         }
         try {
             log.info(overAnnotatedService.sec2b());
-        } catch (RuntimeException e) {
+        } catch (AccessDeniedException e) {
             log.warn("{} on sec2b", e.getMessage());
         }
         try {
             log.info(overAnnotatedService.sec3a());
-        } catch (RuntimeException e) {
+        } catch (AccessDeniedException e) {
             log.warn("{} on sec3a", e.getMessage());
         }
         try {
             log.info(overAnnotatedService.sec3b());
-        } catch (RuntimeException e) {
+        } catch (AccessDeniedException e) {
             log.warn("{} on sec3b", e.getMessage());
         }
         try {
             log.info(overAnnotatedService.sec3c());
-        } catch (RuntimeException e) {
+        } catch (AccessDeniedException e) {
             log.warn("{} on sec3c", e.getMessage());
         }
         try {
             log.info(overAnnotatedService.sec3d());
-        } catch (RuntimeException e) {
+        } catch (AccessDeniedException e) {
             log.warn("{} on sec3d", e.getMessage());
         }
-        log.error("---------------------------------------------------------");
-        log.error("");
     }
 
 }

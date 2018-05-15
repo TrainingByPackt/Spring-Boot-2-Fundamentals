@@ -15,11 +15,15 @@ public class Initializer {
     private final ShortMessageService sms;
     private final PasswordEncoder passwordEncoder;
 
+    /**
+     * After construction of the context, create a base
+     * set of authors and their short messages.
+     */
     @PostConstruct
     void prefillShortMessages() {
         Author admin = Author.builder().admin(true)
                 .username("admin")
-                .fullName("admin")
+                .fullName("Administrator")
                 .password(passwordEncoder.encode("admin"))
                 .build();
         authorService.add(admin);

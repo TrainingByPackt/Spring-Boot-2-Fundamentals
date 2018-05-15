@@ -3,6 +3,10 @@ package com.packt.springboot.securityintro.logic;
 import lombok.Getter;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
+/**
+ * Enumeration for all roles to centralized them and use them consistently.
+ * Spring does not required such a thing!
+ */
 public enum Roles {
     USER,
     ADMIN;

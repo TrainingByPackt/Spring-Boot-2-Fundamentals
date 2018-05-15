@@ -11,6 +11,9 @@ import org.springframework.stereotype.Service;
 import javax.annotation.security.RolesAllowed;
 import java.util.List;
 
+/**
+ * Try all the security access limiting annotations, with both role and authority.
+ */
 @Slf4j
 @Service
 @RequiredArgsConstructor
