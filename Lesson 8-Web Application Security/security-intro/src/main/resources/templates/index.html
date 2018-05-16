@@ -29,7 +29,7 @@
                 <span th:each="auth : ${authorities}" th:text="${auth}">ROLE</span>
             </p>
         </div>
-        <div class="col-md-auto">
+        <div class="col col-lg-8">
             <div class="list-group">
                 <li th:each="msg : ${shortMessages}" class="list-group-item list-group-item-action flex-column align-items-start"
                     th:classappend="${#strings.equals(msg.author.username,'admin')} ? active : ''">
