@@ -16,7 +16,7 @@ public class CreateValidatedBlogPostCommand {
     @Size(max = 140)
     private String title;
 
-    @Size(min = 3, max = 60)
+    @Size(min = 3, max = 60, message = "{slug.size}")
     private String slug;
 
     @NotBlank
