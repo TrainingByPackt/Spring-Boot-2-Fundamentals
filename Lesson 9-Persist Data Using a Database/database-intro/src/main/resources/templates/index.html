@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Security Introduction – Main</title>
+
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+
+    <!-- Custom styles for this template -->
+</head>
+
+<body>
+<div class="container">
+    <div class="row">
+        <h1 class="display-1 w-100">Short Message Service</h1>
+        <p class="lead text-muted">Packt – Beginning Spring Boot 2 – Web Application Security</p>
+    </div>
+    <div class="row">
+        <div class="col col-lg-2">
+            <p>You are: <span th:text="${username}">username</span></p>
+            <hr />
+            <p>Your authorities:
+                <span th:each="auth : ${authorities}" th:text="${auth}">ROLE</span>
+            </p>
+        </div>
+        <div class="col col-lg-8">
+            <div class="list-group">
+                <li th:each="msg : ${shortMessages}" class="list-group-item list-group-item-action flex-column align-items-start"
+                    th:classappend="${#strings.equals(msg.author.username,'admin')} ? active : ''">
+                    <div class="d-flex w-100 justify-content-between">
+                        <h5 class="mb-1" th:text="${msg.author.fullName}">Author</h5>
+                        <small th:text="${msg.postedTime.toLocalDate()}">3 days ago</small>
+                    </div>
+                    <p class="mb-1" th:text="${msg.messageText}">Message</p>
+                    <small th:class="${#strings.equals(msg.author.username,'admin')} ? '' : text-muted">
+                        <span th:text="${msg.author.username}">username</span> on
+                        <span th:text="${msg.postedTime}">time</span></small>
+                </li>
+            </div>
+        </div>
+        <div class="col col-lg-2">
+            <a role="button" class="btn btn-success mb-2" th:href="@{/login}">Log in</a>
+            <form th:action="@{/logout}" method="post">
+                <button type="submit" class="btn btn-info">Log out</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

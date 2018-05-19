@@ -1,4 +1,4 @@
-package com.packt.springboot.securityintro.blogpost;
+package com.packt.springboot.securityintro.logic;
 
 import com.packt.springboot.securityintro.logic.OverAnnotatedService;
 import org.junit.Test;

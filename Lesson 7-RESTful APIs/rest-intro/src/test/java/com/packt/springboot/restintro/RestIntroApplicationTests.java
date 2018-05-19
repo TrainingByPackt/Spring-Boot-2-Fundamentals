@@ -11,6 +11,7 @@ public class RestIntroApplicationTests {
 
     @Test
     public void contextLoads() {
+        // Not throwing an exception during test setup signifies success
     }
 
 }
