@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Backing-Bean and Thymeleaf</title>
+</head>
+<body>
+<div class="container">
+    <h1>Create Blog Post with Multiple Values</h1>
+    <form action="#" th:action="@{/blogposts/create}" th:object="${blogPostCommand}" method="post">
+        <input type="text" id="title" th:field="*{title}">
+        <input type="text" id="slug" th:field="*{slug}">
+        <button type="submit">Submit</button>
+    </form>
+</div>
+</body>
+</html>
