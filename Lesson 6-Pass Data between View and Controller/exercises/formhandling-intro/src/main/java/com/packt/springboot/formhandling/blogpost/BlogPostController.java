@@ -4,10 +4,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
-import javax.validation.Valid;
 import java.time.LocalDateTime;
 
 /**
@@ -91,7 +91,7 @@ public class BlogPostController {
      */
     @PostMapping("create-validated-bean")
     public String createBlogPostFromValidatedBean(
-            @Valid @ModelAttribute CreateValidatedBlogPostCommand createValidatedBlogPostCommand,
+            @Validated @ModelAttribute CreateValidatedBlogPostCommand createValidatedBlogPostCommand,
             BindingResult bindingResult,
             Model model) {
         if (bindingResult.hasErrors()) {
