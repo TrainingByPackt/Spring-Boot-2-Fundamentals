@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Input Demonstration page</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <form action="#" th:action="@{/input}" th:object="${inputTagCommand}" method="post">
+        <fieldset>
+            <legend>Input-Elements for Text or Number</legend>
+            <div>
+                <label for="textValue">Text Value:</label>
+                <input type="text" id="textValue" th:field="*{textValue}">
+            </div>
+            <div>
+                <label for="numberValue">Number Value</label>
+                <input type="number" id="numberValue" th:field="*{numberValue}">
+            </div>
+            <div>
+                <label for="passwordValue">Password Value</label>
+                <input type="password" id="passwordValue" th:field="*{passwordValue}">
+            </div>
+            <div>
+                <label for="hiddenValue">Hidden Value</label>
+                <input type="hidden" id="hiddenValue" th:field="*{hiddenValue}">
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Input-Elements for Selections</legend>
+            <div>
+                <label>
+                    <input type="checkbox" id="checkboxValue" th:field="*{checkboxValue}">
+                    Checkbox Value
+                </label>
+            </div>
+            <div>
+                <input type="radio" id="radioVal1" name="radioValue" value="Radio Value 1" th:field="*{radioValue}">
+                <label for="radioVal1">Radio Value1</label>
+                <input type="radio" id="radioVal2" name="radioValue" value="Radio Value 2" th:field="*{radioValue}">
+                <label for="radioVal2">Radio Value 2</label>
+            </div>
+            <div>
+                <h3>Dynamically Generated Group of Radio Input</h3>
+                <div th:each="dynamicRadioSelection : ${dynamicRadioSelections}">
+                    <input type="radio" th:field="*{dynamicRadioValue}" th:value="${dynamicRadioSelection}"/>
+                    <label th:for="${#ids.prev('dynamicRadioValue')}"
+                           th:text="#{${'radioValue.' + dynamicRadioSelection}}">Value</label>
+                </div>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Input-Elements for User-Interaction</legend>
+            <div><input type="submit" value="Submit"></div>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

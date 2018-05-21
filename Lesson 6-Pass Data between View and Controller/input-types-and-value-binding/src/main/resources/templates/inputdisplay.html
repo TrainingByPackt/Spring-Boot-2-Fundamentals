@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Input Demonstration Output</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body th:object="${inputTagCommand}">
+<div class="container">
+    <h2>Input-Elements for Text or Number</h2>
+    <div>
+        <label>Text Value:</label>
+        <span th:text="*{textValue}">textValue</span>
+    </div>
+    <div>
+        <label>Number Value:</label>
+        <span th:text="*{numberValue}">numberValue</span>
+    </div>
+    <div>
+        <label>Password Value:</label>
+        <span th:text="*{passwordValue}">passwordValue</span>
+    </div>
+    <div>
+        <label>Hidden Value:</label>
+        <span th:text="*{hiddenValue}">hiddenValue</span>
+    </div>
+    <h2>Input-Elements for Selections</h2>
+    <div>
+        <label>Checkbox Value:</label>
+        <span th:text="*{checkboxValue}">checkboxValue</span>
+    </div>
+    <div>
+        <label>Radio Value:</label>
+        <span th:text="*{radioValue}">radioValue</span>
+    </div>
+    <div>
+        <label>Synamic Radio Value:</label>
+        <span th:text="*{dynamicRadioValue}">dynamicRadioValue</span>
+    </div>
+</div>
+</body>
+</html>
