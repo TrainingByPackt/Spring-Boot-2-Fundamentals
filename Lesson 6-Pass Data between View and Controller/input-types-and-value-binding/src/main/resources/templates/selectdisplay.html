@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Select Demonstration Output</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body th:object="${selectTagCommand}">
+<div class="container">
+    <h2>Select-Elements</h2>
+    <div>
+        <label>Single Select Value:</label>
+        <span th:text="#{${'selectOption.' + selectTagCommand.singleSelectValue}}">singleSelectValue label</span>
+        (<span th:text="*{singleSelectValue}">singleSelectValue</span>)
+    </div>
+    <div>
+        <label>Single List Value:</label>
+        <span th:text="#{${'selectOption.' + selectTagCommand.singleListValue}}">singleSelectValue label</span>
+        (<span th:text="*{singleListValue}">singleListValue</span>)
+    </div>
+    <div>
+        <label>Multiple List Value:</label>
+        <ul>
+            <li th:each="multipleListValue : ${selectTagCommand.multipleListValue}"
+                th:text="#{${'selectOption.' + multipleListValue}}">multipleSelectValue label
+                (<span th:text="${multipleListValue}">multipleListValue</span>)
+            </li>
+        </ul>
+    </div>
+</div>
+</body>
+</html>

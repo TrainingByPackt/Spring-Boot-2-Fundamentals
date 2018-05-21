@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Display Text Area Demonstration Output</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body th:object="${textareaTagCommand}">
+<div class="container">
+    <h2>Text Area for Safe Text</h2>
+    <div>
+        <span th:text="*{safeTextValue}">safeTextValue</span>
+    </div>
+    <h2>Text Area for Unsafe Text</h2>
+    <div>
+        <span th:utext="*{unsafeTextValue}">unsafeTextValue</span>
+    </div>
+</div>
+</body>
+</html>

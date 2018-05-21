@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Select Demonstration Page</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <form action="#" th:action="@{/select}" th:object="${selectTagCommand}" method="post">
+        <fieldset>
+            <legend>Select for Single Selection</legend>
+            <div>
+                <label th:for="${#ids.next('singleSelectValue')}">Single Select Value</label>
+                <select th:field="*{singleSelectValue}">
+                    <option th:each="selectOption : ${allSelectOptions}"
+                            th:value="${selectOption}"
+                            th:text="#{${'selectOption.' + selectOption}}">selectOption
+                    </option>
+                </select>
+            </div>
+            <div>
+                <label th:for="${#ids.next('singleListValue')}">Single List Value</label>
+                <select th:field="*{singleListValue}" size="5">
+                    <option th:each="selectOption : ${allSelectOptions}"
+                            th:value="${selectOption}"
+                            th:text="#{${'selectOption.' + selectOption}}">selectOption
+                    </option>
+                </select>
+            </div>
+            <div>
+                <label th:for="${#ids.next('multipleListValue')}">Single List Value</label>
+                <select th:field="*{multipleListValue}" size="5" multiple="multiple">
+                    <option th:each="selectOption : ${allSelectOptions}"
+                            th:value="${selectOption}"
+                            th:text="#{${'selectOption.' + selectOption}}">selectOption
+                    </option>
+                </select>
+            </div>
+            <div>
+                <input type="submit" value="Submit"/>
+            </div>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

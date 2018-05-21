@@ -14,8 +14,8 @@ import static java.util.stream.Collectors.toList;
 @RequestMapping("/input")
 public class InputTagController {
 
-    @ModelAttribute("dynamicRadioSelections")
-    public List<String> initDynamicRadioSelections() {
+    @ModelAttribute("dynamicRadioOptions")
+    public List<String> dynamicRadioOptions() {
         return IntStream.rangeClosed(1, 10)
                 .mapToObj(value -> format("dynamicValue%d", value))
                 .collect(toList());

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Form Text Area Demonstration Page</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <form action="#" th:action="@{/textarea}" th:object="${textareaTagCommand}" method="post">
+        <fieldset>
+            <legend>Text Area for Safe Text</legend>
+            <div>
+                <textarea th:field="*{safeTextValue}" th:rows="${textareaRows}" cols="40"></textarea>
+            </div>
+        </fieldset>
+        <fieldset>
+            <legend>Text Area for Unsafe Text</legend>
+            <div>
+                <textarea th:field="*{unsafeTextValue}" th:rows="${textareaRows}" cols="40"></textarea>
+            </div>
+        </fieldset>
+        <fieldset>
+            <div><input type="submit" value="Submit"></div>
+        </fieldset>
+    </form>
+</div>
+</body>
+</html>

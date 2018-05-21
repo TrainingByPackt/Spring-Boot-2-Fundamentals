@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Form Input Demonstration page</title>
+    <title>Form Input Demonstration Page</title>
 
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 </head>
@@ -38,17 +38,17 @@
                 </label>
             </div>
             <div>
-                <input type="radio" id="radioVal1" name="radioValue" value="Radio Value 1" th:field="*{radioValue}">
+                <input type="radio" id="radioVal1" value="Radio Value 1" th:field="*{radioValue}">
                 <label for="radioVal1">Radio Value1</label>
-                <input type="radio" id="radioVal2" name="radioValue" value="Radio Value 2" th:field="*{radioValue}">
+                <input type="radio" id="radioVal2" value="Radio Value 2" th:field="*{radioValue}">
                 <label for="radioVal2">Radio Value 2</label>
             </div>
             <div>
                 <h3>Dynamically Generated Group of Radio Input</h3>
-                <div th:each="dynamicRadioSelection : ${dynamicRadioSelections}">
-                    <input type="radio" th:field="*{dynamicRadioValue}" th:value="${dynamicRadioSelection}"/>
+                <div th:each="dynamicRadioOption : ${dynamicRadioOptions}">
+                    <input type="radio" th:field="*{dynamicRadioValue}" th:value="${dynamicRadioOption}"/>
                     <label th:for="${#ids.prev('dynamicRadioValue')}"
-                           th:text="#{${'radioValue.' + dynamicRadioSelection}}">Value</label>
+                           th:text="#{${'radioValue.' + dynamicRadioOption}}">Value</label>
                 </div>
             </div>
         </fieldset>

@@ -3,7 +3,7 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Form Input Demonstration Output</title>
+    <title>Display Input Demonstration Output</title>
 
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
 </head>
@@ -26,6 +26,7 @@
         <label>Hidden Value:</label>
         <span th:text="*{hiddenValue}">hiddenValue</span>
     </div>
+
     <h2>Input-Elements for Selections</h2>
     <div>
         <label>Checkbox Value:</label>
@@ -36,8 +37,9 @@
         <span th:text="*{radioValue}">radioValue</span>
     </div>
     <div>
-        <label>Synamic Radio Value:</label>
-        <span th:text="*{dynamicRadioValue}">dynamicRadioValue</span>
+        <label>Dynamic Radio Value:</label>
+        <span th:text="#{${'radioValue.' + inputTagCommand.dynamicRadioValue}}">dynamicRadioValue label</span>
+        (<span th:text="*{dynamicRadioValue}">dynamicRadioValue</span>)
     </div>
 </div>
 </body>
