@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Input Form</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+</head>
+<body>
+<div class="container">
+    <form action="#" th:action="@{/}" th:object="${blogPost}" method="post">
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" th:field="*{title}" placeholder="Blog Post Title">
+        </div>
+        <!-- Insert code from exercise here -->
+        <div class="form-group">
+            <label for="title">Content</label>
+            <textarea type="text" class="form-control" id="content" th:field="*{content}"
+                      placeholder="Blog Post Content"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+</body>
+</html>

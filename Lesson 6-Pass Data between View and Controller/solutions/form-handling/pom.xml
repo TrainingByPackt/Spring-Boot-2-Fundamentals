@@ -3,13 +3,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.packt.springboot</groupId>
+    <groupId>com.packt.springboot.exercise</groupId>
     <artifactId>formhandling-intro</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
 
     <name>formhandling-intro</name>
-    <description>Lesson 6 - Data Input - Form Handling Introduction</description>
+    <description>Lesson 6 - Data Input - Form Handling Exercise</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
