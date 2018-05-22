@@ -1,23 +1,19 @@
 package com.packt.springboot.databaseintro.logic;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 @Service
+@RequiredArgsConstructor
 public class ShortMessageService {
-    private List<ShortMessage> shortMessages = new LinkedList<>();
 
-    /** Low-level access, unsecured */
-    void add(Author author, LocalDateTime postedTime, String messageText) {
-        ShortMessage shortMessage = new ShortMessage(author, postedTime, messageText);
-        shortMessages.add(shortMessage);
-    }
+    private final ShortMessageRepository shortMessageRepository;
 
     public List<ShortMessage> findAll() {
+        List<ShortMessage> shortMessages = shortMessageRepository.retrieveAll();
         // If you want to use @PostFilter, use a modifiable copy!
         return new ArrayList<>(shortMessages);
     }

@@ -8,27 +8,20 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
-import static java.util.Arrays.asList;
-import static java.util.Collections.singleton;
-
 @Data
 @Builder
 @AllArgsConstructor
 public class Author implements UserDetails {
+
+    private int id;
+
     private String username;
 
     private String fullName;
 
     private String password;
 
-    private boolean admin;
-
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return admin
-                ? asList(Roles.ADMIN.getAuthority(), Roles.USER.getAuthority())
-                : singleton(Roles.USER.getAuthority());
-    }
+    private Collection<? extends GrantedAuthority> authorities;
 
     @Override
     public boolean isAccountNonExpired() {

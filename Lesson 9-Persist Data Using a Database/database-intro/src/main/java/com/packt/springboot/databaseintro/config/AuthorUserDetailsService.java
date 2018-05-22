@@ -17,7 +17,7 @@ public class AuthorUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) {
-        Optional<Author> author = authorService.byName(username);
+        Optional<Author> author = authorService.lookupByName(username);
         if (!author.isPresent()) {
             String message = "No user known for " + username;
             log.info(message);
