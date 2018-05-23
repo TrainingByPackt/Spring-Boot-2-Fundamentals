@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default.html}">
+<head>
+    <title th:text="#{blogpost.page.edit.title}">Blog Post</title>
+</head>
+<body>
+<!--/*@thymesVar id="blogPost" type="com.packt.springboot.blogmania.blogpost.BlogPost"*/-->
+<main layout:fragment="content">
+    <div>
+        <form action="#" th:action="@{/blogposts}" th:object="${blogPost}" method="post">
+            <!-- STEP 12
+                 Add a drop-down field to the form with th:field=”*{categoryName}”. To generate all options use the
+                 list of all categories available in a model attribute named categories. -->
+            <div class="form-group">
+                <label for="categoryName">Category Name</label>
+                <select id="categoryName" th:field="*{categoryName}" class="form-control">
+                    <option th:each="category: ${categories}" th:value="${category.name}" th:text="${category.name}"></option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" placeholder="" value="" th:field="*{title}"
+                       required="">
+                <div class="invalid-feedback">
+                    Valid title is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="slug">Slug</label>
+                <input type="text" class="form-control" id="slug" placeholder="" value="" th:field="*{slug}"
+                       required="">
+                <div class="invalid-feedback">
+                    Valid slug is required.
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="content">Content</label>
+                <textarea class="form-control" id="content" placeholder="" rows="10" th:field="*{content}"
+                          required=""></textarea>
+                <div class="invalid-feedback">
+                    Valid content is required.
+                </div>
+            </div>
+
+            <hr>
+            <button class="btn btn-primary btn-lg btn-outline-primary" type="submit" th:text="#{form.submit}">Submit
+            </button>
+        </form>
+    </div>
+</main>
+</body>
+</html>
