@@ -7,7 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Database Introduction – Main</title>
+    <title>Security Introduction – Main</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
@@ -23,11 +23,6 @@
     </div>
     <div class="row">
         <div class="col col-lg-2">
-            <p>You are: <span th:text="${username}">username</span></p>
-            <hr />
-            <p>Your authorities:
-                <span th:each="auth, stat : ${authorities}" th:text="!${stat.last} ? ${auth} + ', ': ${auth}">ROLE</span>
-            </p>
         </div>
         <div class="col col-lg-8">
             <div class="list-group">
@@ -45,10 +40,6 @@
             </div>
         </div>
         <div class="col col-lg-2">
-            <a role="button" class="btn btn-success mb-2" th:href="@{/login}">Log in</a>
-            <form th:action="@{/logout}" method="post">
-                <button type="submit" class="btn btn-info">Log out</button>
-            </form>
         </div>
     </div>
 </div>

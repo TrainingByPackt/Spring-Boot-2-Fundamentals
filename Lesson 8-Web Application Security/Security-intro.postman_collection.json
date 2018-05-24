@@ -1,0 +1,67 @@
+{
+	"info": {
+		"_postman_id": "7c8ebb93-1288-4f2d-bc72-d89365b0f4fe",
+		"name": "Security-intro",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Short Messages (unauthenticated)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/api/messages.json",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"messages.json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Short Messages (authenticated)",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "5143a696-db89-4d08-880d-c63ec858e5e2",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"url": {
+					"raw": "localhost:8080/api/messages.json",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"messages.json"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
