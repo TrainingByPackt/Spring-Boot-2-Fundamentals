@@ -17,7 +17,7 @@ import java.sql.Statement;
 @RequiredArgsConstructor
 public class JdbcDemonstratingRepository {
 
-    private static final String SQL_QUERY = "select 42 from dual";
+    private static final String SQL_QUERY = "SELECT 42 FROM dual";
 
     private final DataSource dataSource;
 
@@ -30,8 +30,8 @@ public class JdbcDemonstratingRepository {
 
     public void jdbcTemplateExample() {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(dataSource);
-        Integer integer = jdbcTemplate.queryForObject(SQL_QUERY, Integer.class);
-        log.info("jdbcTemplateExample success {}", integer);
+        Integer result = jdbcTemplate.queryForObject(SQL_QUERY, Integer.class);
+        log.info("jdbcTemplateExample success {}", result);
     }
 
     public void plainJdbcTryWithResources() {
@@ -39,7 +39,8 @@ public class JdbcDemonstratingRepository {
              Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(SQL_QUERY)) {
             resultSet.next();
-            log.info("plainJdbcTryWithResources success {}", resultSet.getInt(1));
+            int result = resultSet.getInt(1);
+            log.info("plainJdbcTryWithResources success {}", result);
         } catch (SQLException e) {
             log.error("Some SQL problem, somewhere", e);
         }
@@ -56,7 +57,8 @@ public class JdbcDemonstratingRepository {
                 try {
                     resultSet = statement.executeQuery(SQL_QUERY);
                     resultSet.next();
-                    log.info("plainJdbcTryWithResources success {}", resultSet.getInt(1));
+                    int result = resultSet.getInt(1);
+                    log.info("plainJdbcTry success {}", result);
                 } catch (SQLException e) {
                     log.error("Some SQL problem while executing query or retrieving result", e);
                 } finally {
@@ -69,7 +71,7 @@ public class JdbcDemonstratingRepository {
                     }
                 }
             } catch (SQLException e) {
-                log.error("Some SQL problem whiln creating statement", e);
+                log.error("Some SQL problem while creating statement", e);
             } finally {
                 if (statement != null) {
                     try {
