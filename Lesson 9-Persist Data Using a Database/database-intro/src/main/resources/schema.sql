@@ -10,7 +10,7 @@ CREATE TABLE role(
     foreign key (author_id) references author(id)
 );
 CREATE TABLE short_message(
-    id INT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     author_id INT,
     posted_time TIMESTAMP,
     message_text VARCHAR(255),
