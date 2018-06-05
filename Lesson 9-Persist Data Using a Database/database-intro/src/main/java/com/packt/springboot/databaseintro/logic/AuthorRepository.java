@@ -1,5 +1,6 @@
 package com.packt.springboot.databaseintro.logic;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -7,7 +8,6 @@ import org.springframework.jdbc.core.ResultSetExtractor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.stereotype.Repository;
 
-import javax.sql.DataSource;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.HashSet;
@@ -15,13 +15,10 @@ import java.util.Set;
 
 @Slf4j
 @Repository
+@RequiredArgsConstructor
 public class AuthorRepository {
 
     private final JdbcTemplate jdbcTemplate;
-
-    public AuthorRepository(DataSource dataSource) {
-        this.jdbcTemplate = new JdbcTemplate(dataSource);
-    }
 
     public Author retrieveAuthor(int authorId) {
         return jdbcTemplate.query("SELECT id, username, fullname, password, role " +
