@@ -63,10 +63,10 @@ public class BlogPostController {
      */
     @PostMapping("create-multiple-values")
     public ModelAndView createBlogPostFromMultipleValues(
-            @RequestParam(value = "title", required = false) String title,
-            @RequestParam(value = "slug", required = false) String slug,
-            @RequestParam(value = "content", required = false) String content,
-            @RequestParam(value = "visible", required = false) boolean visible) {
+            @RequestParam(name = "title") String title,
+            @RequestParam(name = "slug") String slug,
+            @RequestParam(name = "content") String content,
+            @RequestParam(name = "visible", defaultValue="false") boolean visible) {
         BlogPost createdBlogPost = createBlogPost(title, slug, content, visible);
 
         return new ModelAndView("blogposts/show", "blogPost", createdBlogPost);
