@@ -6,8 +6,10 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.context.annotation.Profile;
 import org.springframework.context.annotation.Scope;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -43,6 +45,24 @@ public class MyConfiguration {
     @Bean @Lazy
     public Date theLazyDate(){
         return new Date();
+    }
+
+    /**
+     * Please note: theConfiguredDate uses the recent additions of time and date classes
+     *
+     * While you will encounter Date instances quite a lot, you should consider to use Instant, LocalDateTime etc.
+     * in new code if possible.
+     */
+    @Profile("dev")
+    @Bean("theConfiguredDate")
+    public Instant theConfiguredFixedDate(){
+        return Instant.ofEpochMilli(1527854742);
+    }
+
+    @Profile("!dev")
+    @Bean
+    public Instant theConfiguredDate(){
+        return Instant.now();
     }
 
     @Bean
