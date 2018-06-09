@@ -66,7 +66,7 @@ public class BlogPostController {
             @RequestParam(name = "title") String title,
             @RequestParam(name = "slug") String slug,
             @RequestParam(name = "content") String content,
-            @RequestParam(name = "visible", defaultValue="false") boolean visible) {
+            @RequestParam(name = "visible", defaultValue = "false") boolean visible) {
         BlogPost createdBlogPost = createBlogPost(title, slug, content, visible);
 
         return new ModelAndView("blogposts/show", "blogPost", createdBlogPost);
