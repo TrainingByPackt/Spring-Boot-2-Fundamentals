@@ -1,20 +1,20 @@
 package com.packt.springboot.blogmania;
 
+import com.packt.springboot.blogmania.config.MyConfiguration;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
 
 @Component
-public class TestClass extends TestBase {
+public class TestClass extends TestBase  {
 
     @Autowired
-    ApplicationContext context2;
+    MyConfiguration myConfig2;
 
     @PostConstruct
     public void post(){
-        System.out.println(context2);
-        System.out.println(context);
+        System.out.println(myConfig2);
+        System.out.println(myConfig);
     }
 }
