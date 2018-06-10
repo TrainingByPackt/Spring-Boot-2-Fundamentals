@@ -6,5 +6,5 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 @Data
 @ConfigurationProperties("greeting")
 public class GreetingProperties {
-    String suffix="greets the developer community";
+    String suffix="the developer community";
 }

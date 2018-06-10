@@ -9,7 +9,7 @@ public class GreetingService {
     private GreetingProperties greetingProperties;
 
     public String greet(String name){
-        return (name+" "+greetingProperties.getSuffix())
+        return (name+" greets "+greetingProperties.getSuffix())
                 //optional: get rid of duplicated spaces
                 .replaceAll("  "," ");
     }
