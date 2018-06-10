@@ -13,7 +13,7 @@ public class BlogPostController {
      * Create a new blog post by processing a key/value parameter.
      */
     @PostMapping("create")
-    public void createFromRequestParam(@RequestParam(name = "title", required = false) String title) {
+    public void createFromRequestParam(@RequestParam String title) {
         log.info("The title is " + title);
     }
 
