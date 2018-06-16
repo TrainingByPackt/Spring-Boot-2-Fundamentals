@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{layouts/default.html}">
+<head>
+    <title th:text="#{category.page.edit.title}">Category</title>
+</head>
+<body>
+<main layout:fragment="content">
+    <div>
+        <!-- STEP 10
+             Add a form to enter the category name. Use the action @{/categories} in the form.
+             Feel free to use Bootstrap to style the input elements. -->
+        <form action="#" th:action="@{/categories}" th:object="${category}" method="post">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" th:field="*{name}">
+            </div>
+            <hr>
+            <button class="btn btn-primary btn-lg btn-outline-primary" type="submit" th:text="#{form.submit}">Submit
+            </button>
+        </form>
+    </div>
+</main>
+</body>
+</html>
