@@ -8,13 +8,13 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>database-intro</name>
+    <name>BlogMania Lesson 9-database-intro</name>
     <description>Lesson 9 – Persist Data Using a Database – Examples</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.2.RELEASE</version>
+        <version>2.0.3.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 

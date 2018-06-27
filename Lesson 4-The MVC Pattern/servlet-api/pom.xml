@@ -7,7 +7,7 @@
     <version>1.0.0</version>
     <packaging>war</packaging>
 
-    <name>SimpleServlet</name>
+    <name>BlogMania Lesson 4-SimpleServlet</name>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>

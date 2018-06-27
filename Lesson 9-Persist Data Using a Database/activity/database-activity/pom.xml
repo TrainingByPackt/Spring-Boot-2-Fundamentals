@@ -8,7 +8,7 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>database-intro</name>
+    <name>BlogMania Lesson 9-database-intro-activity</name>
     <description>Lesson 9 – Persist Data Using a Database – Activity</description>
 
     <parent>

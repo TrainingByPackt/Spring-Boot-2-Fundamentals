@@ -8,13 +8,13 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>rest-intro</name>
+    <name>BlogMania Lesson 7-rest-intro</name>
     <description>Lesson 7 – RESTful APIs – Examples</description>
 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.2.RELEASE</version>
+        <version>2.0.3.RELEASE</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
