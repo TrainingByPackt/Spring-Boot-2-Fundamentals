@@ -8,7 +8,7 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>BlogMania Lesson 6-hateoas-intro</name>
+    <name>Lesson 6-hateoas-intro</name>
     <description>Lesson 7 – RESTful APIs – HATEOAS Examples</description>
 
     <parent>

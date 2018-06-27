@@ -8,7 +8,7 @@
     <version>1.0.0</version>
     <packaging>jar</packaging>
 
-    <name>BlogMania Lesson 8-security-intro-before-exercise</name>
+    <name>Lesson 8-security-intro-before-exercise</name>
     <description>Lesson 8 – Web Application Security – Empty example</description>
 
     <parent>
