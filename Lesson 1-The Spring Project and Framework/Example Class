@@ -1,0 +1,83 @@
+#An example class looks like this: 
+public class BlogEntry {
+   private int id;
+   private String title;
+   private List<String> tags = new ArrayList<>();
+   private String text;
+   private boolean visible = true;
+
+   @Override
+   public String toString() {
+       return "BlogEntry{" +
+               "id=" + id +
+               ", title='" + title + '\'' +
+               ", tags=" + tags +
+               ", text='" + text + '\'' +
+               ", visible=" + visible +
+               '}';
+   }
+
+   @Override
+   public boolean equals(Object o) {
+       if (this == o) return true;
+       if (!(o instanceof BlogEntry)) return false;
+
+       BlogEntry blogEntry = (BlogEntry) o;
+
+       if (getId() != blogEntry.getId()) return false;
+       if (isVisible() != blogEntry.isVisible()) return false;
+       if (!getTitle().equals(blogEntry.getTitle())) return false;
+       if (!getTags().equals(blogEntry.getTags())) return false;
+       return getText().equals(blogEntry.getText());
+   }
+
+   @Override
+   public int hashCode() {
+       int result = getId();
+       result = 31 * result + getTitle().hashCode();
+       result = 31 * result + getTags().hashCode();
+       result = 31 * result + getText().hashCode();
+       result = 31 * result + (isVisible() ? 1 : 0);
+       return result;
+   }
+
+   public int getId() {
+       return id;
+   }
+
+   public void setId(int id) {
+       this.id = id;
+   }
+
+   public String getTitle() {
+       return title;
+   }
+
+   public void setTitle(String title) {
+       this.title = title;
+   }
+
+   public List<String> getTags() {
+       return tags;
+   }
+
+   public void setTags(List<String> tags) {
+       this.tags = tags;
+   }
+
+   public String getText() {
+       return text;
+   }
+
+   public void setText(String text) {
+       this.text = text;
+   }
+
+   public boolean isVisible() {
+       return visible;
+   }
+
+   public void setVisible(boolean visible) {
+       this.visible = visible;
+   }
+}
