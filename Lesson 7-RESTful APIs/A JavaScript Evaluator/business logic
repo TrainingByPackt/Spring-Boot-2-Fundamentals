@@ -1,0 +1,24 @@
+@RestController
+public class JavaScriptController {
+  @Value
+  private static class Message {
+    private String message;
+  }
+
+  // use Nashorn, the Java built-in JavaScript interpreter
+  private ScriptEngine javaScript = new ScriptEngineManager()
+          .getEngineByName("JavaScript");
+
+  /** Try to evaluate the given JavaScript */
+  @PostMapping("/api/computation")
+  public Message eval(@RequestParam(required = false)
+          String expression) throws ScriptException {
+    if (expression == null || expression.equals("")) {
+      throw new IllegalArgumentException("Need non-blank expression");
+    }
+
+    Object eval = javaScript.eval(expression);
+    return new Message("Evaluation of " + expression +
+          " yields " + eval);
+  }
+}
