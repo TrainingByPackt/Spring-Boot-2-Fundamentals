@@ -1,0 +1,26 @@
+@RestController
+@RequestMapping("/api/mottos")
+public class MottoController {
+
+  @Data
+  @NoArgsConstructor
+  @AllArgsConstructor
+  private static class Message {
+    private String message;
+  }
+
+  private List<Message> motto = new ArrayList<>();
+
+  // Append to list of mottos, but only if the motto is unique
+  @PostMapping
+  public ResponseEntity<Message> uniqueAppend(
+          @RequestBody Message message) {
+    if (motto.contains(message)) {
+      return ResponseEntity.status(HttpStatus.CONFLICT).build();
+    } else {
+      motto.add(message);
+      return ResponseEntity.ok()
+              .body(new Message("Accepted #" + motto.size()));
+    }
+  }
+}
