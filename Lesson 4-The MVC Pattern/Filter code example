@@ -1,0 +1,22 @@
+@WebFilter
+@Component
+@Slf4j
+public class LogFilter implements Filter {
+    @Override
+    public void init(FilterConfig filterConfig) throws ServletException {
+    }
+
+    @Override
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
+        log.info("Request started");
+        try {
+            chain.doFilter(request, response);
+        } finally {
+            log.info("Request ended");
+        }
+    }
+
+    @Override
+    public void destroy() {
+    }
+}
