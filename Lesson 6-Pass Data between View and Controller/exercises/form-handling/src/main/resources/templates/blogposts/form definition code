@@ -1,0 +1,37 @@
+<form action="#" th:action="@{/blogposts/create-multiple-values}" method="post">
+  <div class="form-group">
+    <label for="title">Title</label>
+    <input type="text"
+           class="form-control"
+           id="title" name="title"
+           th:value="${title}"
+           placeholder="Blog Post Title">
+  </div>
+  <div class="form-group">
+    <label for="title">Slug</label>
+    <input type="text"
+           class="form-control"
+           id="slug"
+           name="slug"
+           th:value="${slug}"
+           placeholder="Blog Post Slug">
+  </div>
+  <div class="form-group">
+    <label for="title">Content</label>
+    <textarea type="text"
+              class="form-control"
+              id="content"
+              name="content"
+              th:text="${content}"
+              placeholder="Blog Post Content"></textarea>
+  </div>
+  <div class="form-group form-check">
+    <input type="checkbox"
+           class="form-check-input"
+           id="visible"
+           name="visible">
+    <label class="form-check-label" 
+           for="visible">Visible</label>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
