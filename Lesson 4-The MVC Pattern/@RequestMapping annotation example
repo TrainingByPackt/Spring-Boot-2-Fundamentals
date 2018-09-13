@@ -1,0 +1,22 @@
+@Controller
+@RequestMapping("/posts")
+public class RequestMappingPostController {
+    @RequestMapping(path = "/newest", method = RequestMethod.GET)
+    public String showNewestPost() {
+        // This method will be mapped to
+        // GET requests with the path /posts/newest
+    }
+
+    @GetMapping("/all")
+    public String showAllPosts() {
+        // This method will be mapped to
+        // GET requests with the path /posts/all
+    }
+
+    @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
+    public String addPost(@RequestBody Post post) {
+        // This method will be mapped to
+        // POST requests with the path /posts
+    }
+}
