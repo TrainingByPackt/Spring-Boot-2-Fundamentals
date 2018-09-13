@@ -1,0 +1,26 @@
+@RestController
+@RequestMapping(path = "/api/greeting")
+public class ContentTypeController {
+  @Data
+  @NoArgsConstructor // Jackson needs this
+  @AllArgsConstructor // We need this
+  private static class SpecificMessage {
+    private String addressee;
+    private String message;
+  }
+
+  /** POST a form parameter (and get a greeting back) */
+  @PostMapping(consumes = MediaType.APPLICATION_FORM_URLENCODED_VALUE)
+  public SpecificMessage greetFromText(
+          @RequestParam String addressee) {
+    return new SpecificMessage(addressee, "Hello " + addressee);
+  }
+
+  /** POST a JSON record (and get a greeting back) */
+  @PostMapping(consumes = MediaType.APPLICATION_JSON_VALUE)
+  public SpecificMessage greetFromJson(
+          @RequestBody SpecificMessage input) {
+    return new SpecificMessage(input.addressee,
+            "Re: " + input.message);
+  }
+}
