@@ -1,0 +1,22 @@
+@RunWith(SpringRunner.class)
+@SpringBootTest(
+       properties = {"my.property=test","spring.application.name=systemUnderTest"},
+       classes = {BlogRepositorySpringIntegrationCfgTest.TestConfigClass.class})
+public class BlogRepositorySpringIntegrationCfgTest {
+   @SpyBean
+   List<BlogEntry> db;
+   @Autowired
+   BlogRepository repository;
+   @Test
+   public void testAdd() {
+…. (same as before) …
+   }
+   @Configuration
+  @ComponentScan("com.packt.springboot.blogmania.blogentries.service")
+   static class TestConfigClass {
+       @Bean
+       public List<BlogEntry> db(){
+           return new LinkedList<>();
+       }
+   }
+}
