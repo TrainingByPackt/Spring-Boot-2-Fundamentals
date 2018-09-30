@@ -5,5 +5,5 @@
  | |  | (_| | (__|   <| |_ / /
  |_|   \__,_|\___|_|\_\\__/_/
  ${AnsiColor.RED}==============================${AnsiColor.DEFAULT}
- Beginning Spring Boot
+ Spring Boot 2 Fundamentals
  ${AnsiColor.GREEN}Lesson 7${AnsiColor.DEFAULT} – HATEOAS Introduction

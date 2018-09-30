@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * Demo application for RESTful APIs –
- * Lesson 7 of Beginning Spring Boot by Packt Publishing.
+ * Lesson 7 of Spring Boot 2 Fundamentals by Packt Publishing.
  *
  * @author Michael Piefel
  */
