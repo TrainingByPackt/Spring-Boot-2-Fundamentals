@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="~{/layouts/default.html}">
+<head>
+    <title th:text="#{index.page.title}">Welcome Page Title</title>
+</head>
+<body>
+<main layout:fragment="content">
+    <div>
+        <div class="row">
+            <div class="col-md-8 blog-main">
+                <h3 class="pb-3 mb-4 font-italic border-bottom">
+                    Recent Blog Posts
+                </h3>
+
+                <div th:each="blogPost : ${blogPosts}" class="blog-post">
+                    <div th:replace="blogposts/card :: blog-post (${blogPost})">
+                        The Blog Post
+                    </div>
+                </div>
+
+                <nav class="blog-pagination">
+                    <a class="btn btn-outline-primary" href="#">Older</a>
+                    <a class="btn btn-outline-secondary disabled" href="#">Newer</a>
+                </nav>
+
+            </div>
+
+            <aside th:replace="fragments/sidebar :: sidebar">
+                The sidebar
+            </aside>
+
+        </div>
+    </div>
+</main>
+</body>
+</html>

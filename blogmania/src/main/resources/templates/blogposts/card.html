@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>BlogPost - Card</title>
+</head>
+<body>
+<!--/*@thymesVar id="blogPost" type="com.packt.springboot.blogmania.blogpost.BlogPost"*/-->
+<div th:fragment="blog-post (blogPost)" th:remove="tag">
+    <h2 class="blog-post-title" th:text="${blogPost.title}">Blog Post Title</h2>
+    <p class="blog-post-meta"><span
+            th:text="${#temporals.format(blogPost.postDate, 'MMMM d, YYYY')}">January 1, 2018</span> by <a href="#"
+                                                                                                           th:text="${blogPost.author?.firstName}">Author</a>
+    </p>
+    <span th:utext="${blogPost.content}">Main Content</span>
+</div>
+</body>
+</html>
