@@ -5,5 +5,5 @@
 ██████╔╝███████╗╚██████╔╝╚██████╔╝██║ ╚═╝ ██║██║  ██║██║ ╚████║██║██║  ██║
 ╚═════╝ ╚══════╝ ╚═════╝  ╚═════╝ ╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═╝╚═╝  ╚═╝
 
- Courseware by ${AnsiColor.RED}Packt${AnsiColor.DEFAULT}   -   Beginning ${AnsiColor.GREEN}:: Spring Boot ::${AnsiColor.DEFAULT} ${spring-boot.formatted-version}
+ Courseware by ${AnsiColor.RED}Packt${AnsiColor.DEFAULT}   -   ${AnsiColor.GREEN}:: Spring Boot 2 ::${AnsiColor.DEFAULT} Fundamentals ${spring-boot.formatted-version}
              Example   -   B L O G M A N I A  ${application.formatted-version}
